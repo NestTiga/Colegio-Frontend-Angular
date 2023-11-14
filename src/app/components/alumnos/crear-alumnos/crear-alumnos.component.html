@@ -1,0 +1,77 @@
+<form [formGroup]="myForm" (ngSubmit)="addAlumno()" novalidate>
+    <div class="form-row row">
+      <div class="form-group col-12 col-md-12 pe-2 contentenedor-control">
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <label>Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del alumno" formControlName="nombre"/>
+                <div for="nombre" *ngIf="myForm.get('nombre')?.touched && myForm.get('nombre')?.errors?.['required']"
+                class="alert alert-danger">Debe ingresar el nombre del alumno</div>
+                <div for="nombre" *ngIf="myForm.get('nombre')?.touched && myForm.get('nombre')?.errors?.['maxlength']"
+                class="alert alert-danger">Debe ingresar un nombre con un máximo de 25 caracteres</div>
+            </div>
+            <div class="col-sm-6">
+                <label>Apellido</label>
+                <input type="text" class="form-control" id="apellido" placeholder="Ingrese el apellido del alumno" formControlName="apellido"/>
+                <div for="apellido" *ngIf="myForm.get('apellido')?.touched && myForm.get('apellido')?.errors?.['required']"
+                class="alert alert-danger">Debe ingresar el apellido del alumno</div>
+                <div for="apellido" *ngIf="myForm.get('apellido')?.touched && myForm.get('apellido')?.errors?.['maxlength']"
+                class="alert alert-danger">Debe ingresar un apellido con un máximo de 25 caracteres</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <label>Cédula</label>
+                <input type="text" class="form-control" id="cedula" placeholder="Ingrese la cédula del alumno" formControlName="cedula"/>
+                <div for="cedula" *ngIf="myForm.get('cedula')?.touched && myForm.get('cedula')?.errors?.['required']"
+                class="alert alert-danger">Debe ingresar la cédula del alumno</div>
+                <div for="cedula" *ngIf="myForm.get('cedula')?.touched && myForm.get('cedula')?.errors?.['maxlength']"
+                class="alert alert-danger">Debe ingresar un número de cédula con un máximo de 10 caracteres</div>
+            </div>
+            <div class="col-sm-6">
+                <label>Correo</label>
+                <input type="email" class="form-control" id="correo" placeholder="Ingrese el correo del alumno" formControlName="correo"/>
+                <div for="correo" *ngIf="myForm.get('correo')?.touched && myForm.get('correo')?.errors?.['email']"
+                class="alert alert-danger">Debe ingresar un correo válido</div>
+                <div for="correo" *ngIf="myForm.get('correo')?.touched && myForm.get('correo')?.errors?.['maxlength']"
+                class="alert alert-danger">Debe ingresar un correo con un máximo de 50 caracteres</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <label>Celular</label>
+                <input type="text" class="form-control" id="celular" placeholder="Ingrese el celular del alumno" formControlName="celular"/>
+                <div for="celular" *ngIf="myForm.get('celular')?.touched && myForm.get('celular')?.errors?.['required']"
+                class="alert alert-danger">Debe ingresar el número de celular del alumno</div>
+                <div for="celular" *ngIf="myForm.get('celular')?.touched && myForm.get('celular')?.errors?.['maxlength']"
+                class="alert alert-danger">Debe ingresar un número de celular con un máximo de 10 dígitos</div>
+            </div>
+            <div class="col-sm-6">
+                <label>Año Lectivo</label>
+                <input type="text" class="form-control" id="anioLectivo" placeholder="Ingrese el año lectivo del alumno" formControlName="anioLectivo"/>
+                <div for="anioLectivo" *ngIf="myForm.get('anioLectivo')?.touched && myForm.get('anioLectivo')?.errors?.['required']"
+                class="alert alert-danger">Debe ingresar el año lectivo del alumno</div>
+                <div for="anioLectivo" *ngIf="myForm.get('anioLectivo')?.touched && myForm.get('anioLectivo')?.errors?.['maxlength']"
+                class="alert alert-danger">Debe ingresar un máximo de 50 caracteres</div>
+            </div>
+        </div>
+        <label>Usuario</label>
+        <input type="text" class="form-control" id="usuario" placeholder="Ingrese el usuario del alumno" formControlName="usuario"/>
+        <div for="usuario" *ngIf="myForm.get('usuario')?.touched && myForm.get('usuario')?.errors?.['required']"
+        class="alert alert-danger">Debe ingresar el usuario del alumno</div>
+        <div for="usuario" *ngIf="myForm.get('usuario')?.touched && myForm.get('usuario')?.errors?.['maxlength']"
+        class="alert alert-danger">Debe ingresar un usuario con un máximo de 50 caracteres</div>
+        <label>Contraseña</label>
+        <input type="text" class="form-control" id="contrasenia" placeholder="Ingrese la contraseña del alumno" formControlName="contrasenia"/>
+        <div for="contrasenia" *ngIf="myForm.get('contrasenia')?.touched && myForm.get('contrasenia')?.errors?.['required']"
+        class="alert alert-danger">Debe ingresar una contraseña para el alumno</div>
+        <div for="contrasenia" *ngIf="myForm.get('contrasenia')?.touched && myForm.get('contrasenia')?.errors?.['maxlength']"
+        class="alert alert-danger">Debe ingresar una contraseña con un máximo de 25 caracteres</div>
+
+      </div>
+  
+      <button type="submit" class="btn btn-success btnDefaultPrimary btn-stilo" [disabled]="myForm.invalid">
+        Agregar
+      </button>
+    </div>
+  </form>

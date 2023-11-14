@@ -1,0 +1,97 @@
+<div class="alumnos-contenedor">
+    <!-- contenedor de encabezado de la tabla  -->
+    <div class="btnAgregar d-flex justify-content-between mb-4">
+      <div class="contenedor-botones d-flex justify-content-end px-2 py-2">
+        <button-modal
+          [tipoModal]="'nuevoAlumno'"
+          [contenido]="'Nuevo Alumno'"
+          [conIcono]="true"
+          [icono]="'person_add'"
+          [color]="'#33D660'"
+          [titleModal]="'Ingresar nuevo alumno'"
+        >
+        </button-modal>
+      </div>
+    </div>
+    <!-- tabla mostrar Alumnos, se realiza el CRUD-->
+    <div class="contenedor-tabla table-responsive">
+      <div class="col-lg-12">
+        <div class="tabla-cuerpo">
+          <table class="table table-striped tabla-estilos">
+            <thead>
+              <tr>
+                <th scope="col" style="text-align: center">#</th>
+                <th scope="col">
+                  <div class="d-flex" style="cursor: pointer; gap: 4px">
+                    <span>Nombre</span>
+                  </div>
+                </th>
+                <th scope="col">
+                  <div class="d-flex" style="cursor: pointer; gap: 4px">
+                    <span>Apellido</span>
+                  </div>
+                </th>
+                <th scope="col">
+                  <div class="d-flex" style="cursor: pointer; gap: 4px">
+                    <span>Cédula</span>
+                  </div>
+                </th>
+                <th scope="col">
+                  <div class="d-flex" style="cursor: pointer; gap: 4px">
+                    <span>Usuario</span>
+                  </div>
+                </th>
+                <th scope="col">
+                  <div class="d-flex" style="cursor: pointer; gap: 4px">
+                    <span>Correo</span>
+                  </div>
+                </th>
+                <th scope="col">
+                  <div class="d-flex" style="cursor: pointer; gap: 4px">
+                    <span>Celular</span>
+                  </div>
+                </th>
+                <th scope="col">
+                  <div class="d-flex" style="cursor: pointer; gap: 4px">
+                    <span>Año Lectivo</span>
+                  </div>
+                </th>
+                <th scope="col"><div class="d-flex">Acción</div></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let alumno of alumnos; let i = index; let indice = index"
+              >
+                <td>{{ indice + 1 }}</td>
+                <td>{{ alumno.nombre }}</td>
+                <td>{{ alumno.apellido }}</td>
+                <td>{{ alumno.cedula }}</td>
+                <td>{{ alumno.usuario }}</td>
+                <td>{{ alumno.correo }}</td>
+                <td>{{ alumno.celular }}</td>
+                <td>{{ alumno.anioLectivo }}</td>
+                <td>
+                  <div class="contenedor-btn-acciones">
+                    <button
+                      type="button"
+                      class="btn btn-warning btnDefault editar"
+                    >
+                      <i class="material-icons">edit</i>
+                    </button>
+                    <button
+                      class="btn btn-danger btnDefault eliminar"
+                      (click)="EliminarAlumno(alumno.id)"
+                    >
+                      <i class="material-icons">delete</i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
